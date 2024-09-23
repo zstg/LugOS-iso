@@ -1,0 +1,10 @@
+[Unit]
+Description=Setup microcode
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/local/bin/ucode
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

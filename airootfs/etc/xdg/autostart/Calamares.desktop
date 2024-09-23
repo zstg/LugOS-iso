@@ -5,14 +5,14 @@ Name=Install System
 GenericName=System Installer
 Keywords=calamares;system;installer;
 TryExec=calamares
-Exec=pkexec calamares -d
+Exec=sh -c "pkexec calamares -D8"
 Comment=Calamares — System Installer
 Icon=calamares
 Terminal=false
 StartupNotify=true
 Categories=Qt;System;
 X-AppStream-Ignore=true
-
+X-Gnome-Autostart-enabled=true
 Name[ar]=تثبيت النظام
 Icon[ar]=كالامارس
 GenericName[ar]=مثبت النظام

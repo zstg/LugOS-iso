@@ -8,8 +8,7 @@ if status is-interactive
     else
 	fish_default_key_bindings
     end
-    source ~/.dotfiles/shells/.profile
-    source ~/.dotfiles/shells/aliases
+    source ~/.config/fish/aliases
     set -x MANROFFOPT "-c"
     set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
     set fish_greeting
@@ -29,24 +28,9 @@ if status is-interactive
 	bind --preset -M insert \ce end-of-line
 	bind --preset -M insert \cc 'echo; commandline | cat; commandline ""; commandline -f repaint'
     end
-    function __conda_add_prompt # kill the right prompt __conda_add_prompt
-    end
-    source ~/.dotfiles/shells/fish/git.fish
+    source ~/.config/fish/git.fish
     tokyonight-dark # function to display in tokyonight-dark colours
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /home/stig/.miniconda/bin/conda
-    eval /home/stig/.miniconda/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/home/stig/.miniconda/etc/fish/conf.d/conda.fish"
-        . "/home/stig/.miniconda/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/home/stig/.miniconda/bin" $PATH
-    end
-end
-# <<< conda initialize <<<
 
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command

@@ -1,4 +1,0 @@
-# Start GNOME in the live environment
-[Desktop Entry]
-Type=Application
-Exec=gnome-session

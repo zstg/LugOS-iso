@@ -11,8 +11,10 @@ if [[ -d /bedrock ]]; then
     # notify-send "Bootstrapping Ubuntu..."
     # pkexec /bedrock/bin/brl fetch ubuntu
     # notify-send "Cleaning up..."
-    pkexec sed 's/timeout = 30/timeout = 0/g' -i /bedrock/etc/bedrock.conf # make this change regardless of whether a distro is installed or not
-    rm -f $HOME/.config/autostart/ubuntu.desktop
+    # note that sed will work without sudo this once
+    sudo sed 's/timeout = 30/timeout = 0/g' -i /bedrock/etc/bedrock.conf # make this change regardless of whether a distro is installed or not
+    sudo sed -i '106,107d' /etc/sudoers # remove stratos user and sed hack from sudoers file
+    rm -f $HOME/.config/autostart/ubuntu.desktop 2>/dev/null
     # sudo apt update
     # sudo apt -y upgrade
     # notify-send 'Ubuntu bootstrapped successfully.'

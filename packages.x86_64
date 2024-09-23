@@ -9,10 +9,10 @@ base
 base-devel
 bat
 # bind
-# bibata-cursor-theme
+bibata-cursor-theme-bin
 broadcom-wl
 # btrfs-progs
-# calamares-git
+calamares
 ckbcomp
 cmake
 chromium
@@ -65,7 +65,7 @@ gnome-system-monitor
 gedit
 gnome-terminal
 # gnome-text-editor
-gnome-tour
+# gnome-tour
 gnome-user-share
 nautilus
 loupe
@@ -78,7 +78,7 @@ xdg-user-dirs-gtk
 gpart
 # gpm
 gptfdisk
-# grab
+grab
 grub
 hdparm
 intel-ucode
@@ -99,6 +99,7 @@ linux-atm
 linux-firmware
 linux-firmware-marvell
 # livecd-sounds
+# litefm
 # lsscsi
 lvm2
 # lynx
@@ -109,16 +110,17 @@ memtest86+
 memtest86+-efi
 mkinitcpio
 mkinitcpio-archiso
-# mkinitcpio-nfs-utils
+mkinitcpio-netconf
+mkinitcpio-nfs-utils
 # mkinitcpio-openswap
 modemmanager
 mtools
 nano
-# nbd
+nbd
 # ndisc6
 neovim
 networkmanager
-# nfs-utils
+nfs-utils
 # nilfs-utils
 npm
 ntfs-3g
@@ -131,14 +133,14 @@ os-prober
 # parted
 # partimage
 # pcsclite
-# pv
+pv
 python-pyqt5
 qt5-wayland
 qt6-wayland
 refind
 # reflector
 # rock
-# rockers
+rockers
 ripgrep
 rsync
 sg3_utils
@@ -167,6 +169,6 @@ wget
 wpa_supplicant
 xorg
 xorg-server
-# yay-bin
+yay-bin
 zsh
 zsh-syntax-highlighting

@@ -2,3 +2,5 @@
 echo "Setting up Bedrock!"
 # curl -sSL https://github.com/bedrocklinux/bedrocklinux-userland/releases/download/0.7.29/bedrock-linux-0.7.29-x86_64.sh  > ./install-bedrock
 echo 'Not reversible!' | bash /usr/local/bin/install-bedrock-x86_64 --hijack
+rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf # don't autologin as stratos anymore
+rm -f /etc/systemd/system/multi-user.target.wants/Calamares.service /etc/systemd/system/Calamares.service 2>/dev/null # it will NOT run post-install anyways

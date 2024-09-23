@@ -1,16 +1,1 @@
-[Unit]
-Description=GNOME Display Manager
-Documentation=man:gdm(1) man:gdm.conf(5)
-Conflicts=getty@tty1.service
-After=network.target plymouth-quit.service systemd-logind.service
-PartOf=graphical.target
-StartLimitIntervalSec=30
-StartLimitBurst=2
-
-[Service]
-ExecStart=/usr/bin/gdm
-Restart=always
-
-[Install]
-Alias=display-manager.service
- 
+/usr/lib/systemd/system/gdm.service

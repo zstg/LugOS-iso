@@ -29,9 +29,8 @@ file_permissions=(
   ["/usr/local/bin/neofetch"]="0:0:777"
   ["/usr/local/bin/install-using-pacman"]="0:0:777"
   ["/usr/local/bin/install-using-yay"]="0:0:777"
-  ["/usr/local/bin/install-using-flatpak"]="0:0:777"
+  ["/usr/local/bin/StratOS-install-apt"]="0:0:777"
   ["/usr/local/bin/StratOS-choose-atril"]="0:0:777"
-  ["/usr/local/bin/StratOS-choose-brave"]="0:0:777"
   ["/usr/local/bin/StratOS-choose-chromium"]="0:0:777"
   ["/usr/local/bin/StratOS-choose-evince"]="0:0:777"
   ["/usr/local/bin/StratOS-choose-firefox"]="0:0:777"
@@ -51,4 +50,6 @@ file_permissions=(
   ["/usr/local/bin/StratOS-configure-gnome"]="0:0:777"
   ["/usr/local/bin/StratOS-configure-theme"]="0:0:777"
   ["/usr/local/bin/StratOS-configure-ubuntu"]="0:0:777"
+  ["/usr/local/bin/ucode"]="0:0:777"
+  ["/usr/local/bin/vcheck"]="0:0:777"
 )

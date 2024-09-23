@@ -1,0 +1,10 @@
+[Unit]
+Description=Fix VM issues
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/local/bin/vcheck
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
