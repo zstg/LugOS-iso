@@ -43,7 +43,7 @@ jobs:
           tag_name: v${{ env.BUILD_DATE }}
           release_name: v${{ env.BUILD_DATE }}
           body: |
-            Automated release powered by GitHub Actions.
+            Automated ISO release powered by GitHub Actions.
 
       - name: Upload ISO as Release Asset
         id: upload_asset
