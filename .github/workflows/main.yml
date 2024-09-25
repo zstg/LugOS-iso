@@ -1,0 +1,57 @@
+name: Build and Release ISO
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    container:
+      image: archlinux/archlinux:latest
+      options: --privileged
+
+    steps:
+      - name: Checkout repository using git
+        run: |
+          pacman -Sy git sudo archiso grub --noconfirm
+          git clone --recurse-submodules https://github.com/${{ github.repository }} StratOS-iso
+
+      - name: Set up environment
+        run: |
+          export BUILD_DATE=$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)
+          echo "BUILD_DATE=${BUILD_DATE}" >> $GITHUB_ENV
+          echo "::set-output name=date::${BUILD_DATE}" 
+
+      - name: Build ISO
+        id: build_iso
+        run: |
+          cd StratOS-iso
+          sudo bash ./build.sh
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.BUILD_DATE }}
+          release_name: v${{ env.BUILD_DATE }}
+          body: |
+            Automated release powered by GitHub Actions.
+
+      - name: Upload ISO as Release Asset
+        id: upload_asset
+        uses: actions/upload-release-asset@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: StratOS-iso/output/StratOS-${{ env.BUILD_DATE }}-x86_64.iso
+          asset_name: StratOS-${{ env.BUILD_DATE }}-x86_64.iso
+          asset_content_type: application/octet-stream
