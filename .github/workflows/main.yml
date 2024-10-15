@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions: 
       contents: write
       pull-requests: write
@@ -43,7 +43,7 @@ jobs:
           tag_name: v${{ env.BUILD_DATE }}
           release_name: v${{ env.BUILD_DATE }}
           body: |
-            Automated ISO release powered by GitHub Actions.
+            Automated release powered by GitHub Actions.
 
       - name: Upload ISO as Release Asset
         id: upload_asset
