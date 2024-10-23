@@ -20,7 +20,7 @@ jobs:
       - name: Checkout repository using git
         run: |
           pacman -Sy git sudo archiso grub --noconfirm
-          git clone --recurse-submodules https://github.com/${{ github.repository }} StratOS-iso
+          git clone --recurse-submodules https://github.com/${{ github.repository }} gnome-iso
 
       - name: Set up environment
         run: |
@@ -31,7 +31,7 @@ jobs:
       - name: Build ISO
         id: build_iso
         run: |
-          cd StratOS-iso
+          cd gnome-iso
           sudo bash ./build.sh
 
       - name: Create GitHub Release
